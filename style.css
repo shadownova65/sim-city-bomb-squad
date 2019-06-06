@@ -1,3 +1,46 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #777777;
+  border-bottom: black solid 10px;
+  color: darkorange;
+  padding-top: 0.4em;
+}
+
 body{
   text-align: center;
 }
+
+main {
+  background: url("img/simcity.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#board {
+  background: rgba(0, 0, 0, 0.7);
+  height: 63%;
+  padding: 1.5em 4em;
+  border-radius: 8px;
+}
+#timer p {
+  color: green;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#ctlbtn {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0.3em;
+  width: 6em;
+  border-radius: 5px;
+  border: darkgray solid 3px;

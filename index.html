@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sim City Bomb Squad</title>
-  </head>
-  <body>
-    <!-- Your code here -->
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sim City Bomb - Pinyi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sim City Bomb</h1>
+  </header>
+
+  <main>
+
+    <audio src="sounds/Siren.wav" loop type="audio/wav" id="gamebackground"></audio>
+    <audio src="sounds/CrowdYay.wav" type="audio/wav" id="cheer"></audio>
+    <audio src="sounds/success.ogg" type="audio/ogg" id="winsong"></audio>
+
+    <div id="board">
+      <div id="timer">
+        <p>00:00:00.000</p>
+      </div>
+
+      <div id="wireboard">
+        <!-- !maybe need to create this with js -->
+        <img src="img/uncut-blue-wire.png" alt="bluewire" id="bluewire">
+        <img src="img/uncut-green-wire.png" alt="greenwire" id="greenwire">
+        <img src="img/uncut-red-wire.png" alt="redwire" id="redwire">
+        <img src="img/uncut-white-wire.png" alt="whitewire" id="whitewire">
+        <img src="img/uncut-yellow-wire.png" alt="" id="yellowwire">
+      </div>
+
+      <button id="ctlbtn">START</button>
+    </div>
+  </main>
+  
+
+  <footer>
+
+
+  </footer>
+
+  <script src='bomb.js'></script>
+</body>
 </html>
