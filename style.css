@@ -15,13 +15,19 @@ body{
 }
 
 main {
-  background: url("img/simcity.jpg");
+  /* background: url("img/simcity.jpg"); */
+  
   background-size: cover;
   background-attachment: fixed;
   min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.exploded {
+  background: url('img/explosion.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 #board {

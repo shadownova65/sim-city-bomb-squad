@@ -73,6 +73,7 @@ function createGame() {
     wireCut = [];
     timerPEl.style.color = 'green';
     timerPEl.textContent = '00:00:' + (remainTime/1000).toFixed(3);
+    mainEl.className = '';
     for (let wire in wiresinfo) {
         if (Math.random() >= 0.5) {
             wireToCut.push(wire);
@@ -93,6 +94,7 @@ function createGame() {
         timerPEl.textContent = '00:00:' + (remainTime/1000).toFixed(3);
         if (remainTime <= 0) {
             timerPEl.textContent = '00:00:00.000';
+            loseGame();
         }
     }, timeInterval);
 }
@@ -122,7 +124,8 @@ function loseGame() {
     bkgSoundEl.pause();
     bkgSoundEl.currentTime = 0;
     loseSound.play();
-    mainEl.style.background ="url('../img/explosion.jpg')";
+    mainEl.className ='exploded';
+    console.log(mainEl.classList);
     clearInterval(intervalHandler);
     timerPEl.style.color = 'red';
     wireBoardEl.removeEventListener('click', cutWire);
