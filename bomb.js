@@ -45,6 +45,7 @@ var winSongEl;
 document.addEventListener('DOMContentLoaded', function(e){
     console.log('loaded!');
     mainEl = document.getElementsByTagName('main')[0];
+    console.log(mainEl);
     wiresImgElArr = document.getElementById('wireboard').getElementsByTagName('img');
     ctlBtnEl = document.getElementById('ctlbtn');
     wireBoardEl = document.getElementById('wireboard');
@@ -64,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function(e){
 
 //*function field
 function createGame() {
-    mainEl.style.background = 'url("img/simcity.jpg")';
+    winSongEl.pause();
+    winSongEl.currentTime = 0;
     for (let wireimg of wiresImgElArr) {
         wireimg.src = wiresinfo[wireimg.id].uncuturl;
     }
@@ -73,10 +75,13 @@ function createGame() {
     wireCut = [];
     timerPEl.style.color = 'green';
     timerPEl.textContent = '00:00:' + (remainTime/1000).toFixed(3);
-    mainEl.className = '';
-    for (let wire in wiresinfo) {
-        if (Math.random() >= 0.5) {
-            wireToCut.push(wire);
+    mainEl.classList.add('unexploded');
+    mainEl.classList.remove('exploded');
+    while (wireToCut.length === 0) {
+        for (let wire in wiresinfo) {
+            if (Math.random() >= 0.5) {
+                wireToCut.push(wire);
+            }
         }
     }
     console.log(wireToCut);
@@ -121,13 +126,14 @@ function cutWire(evt) {
 
 function loseGame() {
     console.log('Lose');
+    mainEl.classList.remove('unexploded');
+    mainEl.classList.add('exploded');
+    console.log(mainEl);
     bkgSoundEl.pause();
     bkgSoundEl.currentTime = 0;
     loseSound.play();
-    mainEl.className ='exploded';
-    console.log(mainEl.classList);
-    clearInterval(intervalHandler);
     timerPEl.style.color = 'red';
+    clearInterval(intervalHandler);
     wireBoardEl.removeEventListener('click', cutWire);
 }
 
@@ -137,6 +143,7 @@ function winGame() {
     bkgSoundEl.pause();
     bkgSoundEl.currentTime = 0;
     cheerEl.play();
+    
     wireBoardEl.removeEventListener('click', cutWire);
 }
 
